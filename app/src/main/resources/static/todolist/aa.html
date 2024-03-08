@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+  <head>
+  
+    <title>Document</title>
+    <script src="js/code.jquery.com_jquery-3.7.0.js"></script>
+  </head>
+  <body>
+    <div>
+      <label for="chk" aria-hidden="true">KAYIT OL</label>
+      <input type="text" id="txt" placeholder="Kullanıcı Adı" required="" />
+      <input type="email" id="email" placeholder="E-mail" required="" />
+      <input type="password" id="pswd" placeholder="Şifre" required="" />
+      <button id="save-btn">KAYIT OL</button>
+    </div>
+  </body>
+
+  <script>
+    let btn = document.getElementById("save-btn");
+    btn.addEventListener("click", (e) => {
+      saveUserWithBtn();
+    });
+    function saveUserWithBtn() {
+      let text = document.getElementById("txt").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("pswd").value;
+      console.log("verile: ", text, email, password);
+      $.post(
+        "http://localhost:8080/user/dda",
+        {
+          "kullaniciAdi": text,
+          "kullaniciMail": email,
+          "kullaniciSifre": password,
+        },
+        (resp) => {
+          console.log("response in server: " + resp);
+        }
+      );
+    }
+  </script>
+</html>

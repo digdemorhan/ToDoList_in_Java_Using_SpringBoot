@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Görevler</title>
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+            body {
+                font-family: 'Montserrat', sans-serif;
+                padding: 0 20px;
+            }
+
+            .input-container,
+            .container {
+                max-width: 900px;
+                margin-inline: auto;
+            }
+
+            h1 {
+                text-align: center;
+                border-bottom: 1px solid #999;
+                padding: 0 0 15px 0;
+            }
+
+            .input-container {
+                text-align: center;
+                padding: 20px 0 0 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-shadow: 0.1px 0.1px 2px rgba(0, 0, 0, 0.4);
+                margin-bottom: 30px;
+            }
+
+            .input-field,
+            button{
+                box-sizing: border-box;
+                padding: 12px;
+                font-size: 1.1rem;
+                margin: 0 0 15px 0;
+                border-radius: 5px;
+                border: none;
+                background: #eee;
+                outline: none;
+                width: 60%;
+                box-shadow: 0.1px 0.1px 2px rgba(0, 0, 0, 0.3);
+                font-family: inherit;
+                letter-spacing: 0.8px;
+            }
+
+            .input-field:focus:invalid {
+                border-bottom: 2px solid red;
+            }
+
+            .input-field:valid {
+                border-bottom: 2px solid green;
+            }
+
+            button {
+                font-size: 1rem;
+                background: rgb(67, 67, 67);
+                color: #fff;
+                width: 30%;
+                cursor: pointer;
+                box-shadow: 0.1px 0.1px 2px rgba(0, 0, 0, 0.4);
+                font-weight: bold;
+            }
+
+            .container {
+                box-shadow: 0.1px 0.1px 2px rgba(0, 0, 0, 0.4);
+                padding: 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                grid-gap: 15px 15px;
+                grid-auto-flow: dense;
+            }
+
+            .header {
+                text-align: center;
+                background: #eee;
+                padding: 10px;
+            }
+
+            .header:first-of-type {
+                grid-column: 1 / span 2;
+            }
+
+            i {
+                cursor: pointer;
+                color: #444;
+            }
+
+            i.fa-trash {
+                margin-left: 7px;
+            }
+
+            i.fa-check:hover {
+                color: green;
+            }
+
+            i.fa-trash:hover,
+            i.fa-times:hover {
+                color: red;
+            }
+
+            .todo {
+                grid-column: 1 / span 1;
+                padding: 15px 10px;
+                border-radius: 5px;
+                border-bottom: 3px solid red;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0.1px 0.1px 2px rgba(0, 0, 0, 0.4);
+                animation: todo 0.3s ease;
+            }
+
+            .todo:hover {
+                background-color: rgba(255, 0, 0, 0.3);
+                color: red;
+            }
+
+            .todo:hover.completed {
+                background-color: rgba(0, 255, 0, 0.3);
+                color: green;
+            }
+
+            .todo.completed {
+                grid-column: 2 / span 1;
+                border-color: green;
+            }
+
+            .todo-id {
+                display: none;
+            }
+
+            .todo-actions {
+                display: flex;
+                padding: 0 0 0 7px;
+            }
+
+            @media (max-width: 380px) {
+                .container {
+                    padding: 10px 10px;
+                }
+
+                .input-field,
+                button {
+                    width: 90%;
+                }
+            }
+
+            @media (max-width: 370px) {
+                body {
+                    padding: 0 5px;
+                }
+
+                .todo {
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                .todo-actions {
+                    margin-top: 10px;
+                }
+            }
+
+            @keyframes todo {
+                from {
+                    transform: scale(0);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="index.html">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class=""></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Ana Sayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="girisyap.html">Çıkış Yap</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+        </header><br><br><br><br>
+
+
+        <h1>ToDoList</h1>
+
+        <div class="input-container">
+            <input type="text" class="input-field" placeholder="görev giriniz...">
+                <button onclick="gorevEkle()" id="btn">Görev Ekle</button>
+        </div>
+
+        <div class="container">
+            <span class="header">Görevler</span>
+            <span class="header">Tamamlanmadı</span>
+            <span class="header">Tamamlandı</span>
+        </div>
+
+
+        <script>
+
+            const $container = document.querySelector('.container');
+            const $btn = document.getElementById('btn');
+            const $inputField = document.querySelector('.input-field');
+
+            $inputField.addEventListener('keyup', (e) => {
+                // if ENTER key pressed
+                if (e.keyCode === 13) {
+                    saveTodo();
+                }
+            });
+
+            $container.addEventListener('click', (e) => {
+                const $todo = e.target.parentElement.parentElement;
+
+                if (e.target.classList.contains('fa-trash')) {
+                    const $todo = e.target.parentElement.parentElement;
+                    $todo.remove();
+                    // remove from local storage
+                    removeFromLocalStorage(getTodoID($todo));
+                    return;
+                }
+
+                if (e.target.nodeName === 'I') {
+                    $todo.classList.toggle('completed');
+                    e.target.classList.toggle('fa-times');
+                    e.target.classList.toggle('fa-check');
+                    // change todo complete status in local storage
+                    toggleTodoCompleteStatus(getTodoID($todo));
+                }
+            });
+
+            function getTodoID($todo) {
+                return $todo.querySelector('.todo-id').textContent;
+            }
+
+            $btn.addEventListener('click', saveTodo);
+
+            function saveTodo() {
+                if ($inputField.value !== '') {
+                    const todo = saveToLocalStorage($inputField.value);
+                    $container.insertAdjacentHTML('beforeend', getTodoHTMLMarkup(todo));
+                    $inputField.value = '';
+                }
+            }
+
+            function saveToLocalStorage(todoText) {
+                let todos = readFromLocalStorage();
+
+                // empty local storage
+                if (!todos)
+                    todos = [];
+
+                const todo = {id: Date.now(), text: todoText, completed: false};
+                todos.push(todo);
+                localStorage.setItem('todos', JSON.stringify(todos));
+
+                return todo;
+            }
+
+            function readFromLocalStorage() {
+                const todos = localStorage.getItem('todos');
+                return !todos ? [] : JSON.parse(todos);
+            }
+
+            function removeFromLocalStorage(todoID) {
+                let todos = readFromLocalStorage();
+                todos = todos.filter(t => t.id != todoID);
+
+                if (todos.length === 0) {
+                    localStorage.removeItem('todos');
+                    return;
+                }
+
+                localStorage.setItem('todos', JSON.stringify(todos));
+            }
+
+            function toggleTodoCompleteStatus(todoID) {
+                let todos = readFromLocalStorage();
+
+                todos = todos.map(t => {
+                    if (t.id == todoID)
+                        t.completed = !t.completed;
+                    return t;
+                });
+
+                localStorage.setItem('todos', JSON.stringify(todos));
+            }
+
+            function getTodoHTMLMarkup(todo) {
+                return `
+            <div class="${todo.completed ? 'todo completed' : 'todo'}">
+                <span>
+                <span class="todo-id">${todo.id}</span>
+                <span>${todo.text}</span>
+                </span>
+                <div class="todo-actions">
+                <i class="${todo.completed ? 'fas fa-times' : 'fas fa-check'}"></i>
+                <i class="fas fa-trash"></i>
+                </div>
+            </div>
+        `;
+            }
+
+
+            function initApp() {
+                const todos = readFromLocalStorage();
+                if (todos.length === 0)
+                    return;
+                todos.forEach(t => $container.insertAdjacentHTML('beforeend', getTodoHTMLMarkup(t)));
+            }
+
+            initApp();
+
+        </script><br><br><br><br><br>
+
+
+<script>
+
+
+     
+    function buu(){
+        let mail = "sismustafa02@gmail.com"
+     let f = new FormData();
+     f.append("name", "talha");
+     f.append("mail", "talha@ggg.com");
+     f.append("password", "talha1212");
+        console.log("bu calisti")
+        $.post("http://localhost:8080/user/dda", {
+            "name": "mustafa",
+    "mail": "a@b.com",
+    "password": "adfsdf"
+        }, 
+        function(e){
+            console.log(e)
+        }
+)
+
+    }
+
+
+    buu();
+
+     
+</script>
+        </body>
+
+        </html>
