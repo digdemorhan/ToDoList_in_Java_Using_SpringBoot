@@ -2,9 +2,7 @@
 **PROJENİN ANA TEMASI:**
 
 Proje, NetBeans IDE'de Java diliyle yazılmıştır. Basit bir ToDoList web uygulaması tasarlanmıştır. Kullanıcılar giriş yapıp kayıt olabilirler ve bu veriler veritabanında tutulur. Kullanıcı bu işlemlerden 
-herhangi birini yaptığında görev sayfasına atılır ve görev ekleyebilir, görev silebilir, görevi "tamamlandı" veya "tamamlanmadı" bölümünde tutabilir. Görev sayfasında yapılan işlemler veritabanında tutulur. 
-Frontend tarafı HTML, CSS VE JavaScript ile yazılmıştır. Frontend ve backend bağlantısını sağlamak için SpringBoot kullanılmıştır. Controller, DTO, entity sınıfları yazılmıştır. Kullanıcı ekleme, kullanıcı 
-silme, görev ekleme, görev silme, rastgele kullanıcı id atama ve rastgele görev id atama işlemleri ayrı bir dosyada toplanıp metotlar aracılığıyla gruplanmıştır.
+herhangi birini yaptığında görev sayfasına atılır ve görev ekleyebilir, görev silebilir, görevi "tamamlandı" veya "tamamlanmadı" bölümünde tutabilir. Görev sayfasında yapılan işlemler veritabanında tutulur. Frontend tarafı HTML, CSS VE JavaScript ile yazılmıştır. Frontend ve backend bağlantısını sağlamak için SpringBoot kullanılmıştır. Controller, DTO, entity sınıfları yazılmıştır. Kullanıcı ekleme, kullanıcı silme, görev ekleme, görev silme, rastgele kullanıcı id atama ve rastgele görev id atama işlemleri ayrı bir dosyada toplanıp metotlar aracılığıyla gruplanmıştır.
 
 
 **MAIN THEME OF THE PROJECT:**
